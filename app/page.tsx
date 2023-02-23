@@ -1,14 +1,11 @@
-import { Oswald } from "@next/font/google";
+"use client";
 
-const oswald = Oswald({
-  subsets: ["latin"],
-  display: "swap",
-});
+import AddPost from "./components/AddPost";
 
 export default function Home() {
   return (
     <main>
-      <p className={"text-lg py-2 " + oswald.className}>Hello next</p>
+      <AddPost />
     </main>
   );
 }
