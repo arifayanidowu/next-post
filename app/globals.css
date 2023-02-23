@@ -89,6 +89,10 @@ body {
   overflow-x: hidden;
 }
 
+html.light {
+  background-color: inherit
+}
+
 
 a {
   color: inherit;

@@ -1,5 +1,14 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  mode: "jit",
+  purge: {
+    enabled: process.env.NODE_ENV === "production",
+    content: [
+      "./app/**/*.{js,ts,jsx,tsx}",
+      "./pages/**/*.{js,ts,jsx,tsx}",
+      "./components/**/*.{js,ts,jsx,tsx}",
+    ],
+  },
   darkMode: "class",
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -9,5 +18,5 @@ module.exports = {
   theme: {
     extend: {},
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };

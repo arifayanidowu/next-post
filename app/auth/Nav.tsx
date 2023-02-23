@@ -8,7 +8,7 @@ export default async function Nav() {
   const session = await getServerSession(authOptions);
 
   return (
-    <nav className="flex justify-between items-center py-8">
+    <nav className="flex justify-between items-center py-8 flex-wrap">
       <Link href="/">
         <h1 className="font-bold text-lg">Send it </h1>
       </Link>

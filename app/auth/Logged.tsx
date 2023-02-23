@@ -4,14 +4,21 @@ import { signOut } from "next-auth/react";
 import Image from "next/image";
 import Link from "next/link";
 import Button from "../components/Button";
+import IconButton from "../components/IconButton";
+import { SunIcon, MoonIcon } from "../components/icons";
 import { useStore } from "../store";
 
 const Logged = ({ session }: { session: Session }) => {
-  const setTheme = useStore((state) => state.setTheme);
+  const { setTheme, isDark } = useStore((state) => state);
 
   return (
-    <li className="flex gap-2 items-center">
-      <Button onClick={setTheme}>Toggle</Button>
+    <li className="flex gap-2 items-center flex-wrap">
+      {/* <Button onClick={setTheme}>
+        {useStore((state) => state.isDark) ? "Light" : "Dark"}
+      </Button> */}
+      <IconButton onClick={setTheme}>
+        {isDark ? <SunIcon color={"#cbaf3c"} /> : <MoonIcon />}
+      </IconButton>
       <Button onClick={() => signOut()}>Sign out</Button>
       <Link href="/dashboard">
         <Image
