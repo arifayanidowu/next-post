@@ -1,21 +1,5 @@
 import axios, { AxiosError } from "axios";
 
-export interface Post {
-  id: string;
-  title: string;
-  createdAt: Date;
-  updatedAt: Date;
-  userId: string;
-  published?: boolean;
-  user?: {
-    id: string;
-    name: string;
-    email: string;
-    emailVerified: boolean;
-    image: string;
-  };
-}
-
 export const getAllPosts = async () => {
   try {
     const { data } = await axios.get("/api/posts/getPosts");

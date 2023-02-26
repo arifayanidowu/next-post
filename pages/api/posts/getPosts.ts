@@ -10,6 +10,10 @@ export default async function handler(
       const posts = await client.post.findMany({
         include: {
           user: true,
+          comments: true,
+        },
+        orderBy: {
+          createdAt: "desc",
         },
       });
       res.status(200).json(posts);

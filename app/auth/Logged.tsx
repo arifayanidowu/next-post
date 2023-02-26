@@ -13,9 +13,6 @@ const Logged = ({ session }: { session: Session }) => {
 
   return (
     <li className="flex gap-2 items-center flex-wrap">
-      {/* <Button onClick={setTheme}>
-        {useStore((state) => state.isDark) ? "Light" : "Dark"}
-      </Button> */}
       <IconButton onClick={setTheme}>
         {isDark ? <SunIcon color={"#cbaf3c"} /> : <MoonIcon />}
       </IconButton>
