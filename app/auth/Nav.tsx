@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Login from "./Login";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { authOptions } from "@/pages/api/auth/[...nextauth].js";
 import { getServerSession } from "next-auth/next";
 import Logged from "./Logged";
 
