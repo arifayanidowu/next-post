@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
-import { useState } from "react";
+import { useCallback, useState } from "react";
 import { toast, Id } from "react-toastify";
 import Toggle from "./Toggle";
 import { deletePost } from "../endpoints/deletePost";
@@ -21,7 +21,7 @@ const EditPost = ({ id, name, title, avatar, comments }: IEditPost) => {
 
   const { mutate } = useMutation(deletePost, {
     onSuccess: () => {
-      queryClient.invalidateQueries(["posts"]);
+      queryClient.invalidateQueries(["authPosts"]);
       setToggle(false);
       toast.update(toastId!, {
         render: "Post deleted successfully",
@@ -47,11 +47,11 @@ const EditPost = ({ id, name, title, avatar, comments }: IEditPost) => {
     },
   });
 
-  const onDeletePost = () => {
+  const onDeletePost = useCallback(() => {
     setToggle(false);
     toastId = toast.loading("Deleting post...");
     mutate(id);
-  };
+  }, [id]);
 
   return (
     <>
